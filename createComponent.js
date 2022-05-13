@@ -53,7 +53,12 @@ export default ${componentName};
   const scssFileContent = `// Только БЭМ-блок ${className}, его элементы и модификаторы
 // Импорт файла - в диспетчере стилей
 
-.${className} {}
+.${className} {
+
+  $block-name: &; // #{$block-name}__some {}
+
+
+}
 `;
 
   fs.writeFile(`${componentDirectory}${componentName}.scss`, scssFileContent, (err) => {

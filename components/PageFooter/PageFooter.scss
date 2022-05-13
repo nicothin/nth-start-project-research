@@ -1,4 +1,9 @@
 // Только БЭМ-блок page-footer, его элементы и модификаторы
 // Импорт файла - в диспетчере стилей
 
-.page-footer {}
+.page-footer {
+
+  $block-name: &; // #{$block-name}__some {}
+
+
+}

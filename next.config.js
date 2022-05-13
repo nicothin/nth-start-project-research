@@ -4,7 +4,7 @@ const nextConfig = {
   reactStrictMode: true,
   compiler: {
     removeConsole: {
-      exclude: ['error'],
+      exclude: ['error', 'log'],
     },
   },
   // basePath: '/',

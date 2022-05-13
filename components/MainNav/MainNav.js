@@ -1,46 +1,28 @@
 import { useRouter } from 'next/router';
-import Link from 'next/link';
+
+import { getMenuItems } from './mainMenu.helpers';
 
 // Стилевой файл импортируется в диспетчере стилей
 
 const navigation = [
-  { id: 1, text: 'Home', path: '/', },
-  { id: 2, text: 'Items', path: '/items', children: [], },
+  { id: 1, text: 'Home', path: '/', className: 'nano-class', },
+  { id: 2, text: 'Items', path: '/items', childs: [
+    { id: 11, text: 'Item 1', path: '/items/1', className: 'mega-class', },
+    { id: 12, text: 'Item 2', path: '/items/2', },
+    { id: 13, text: 'Item 3', path: '/items/3', },
+  ], },
   { id: 3, text: 'Contacts', path: '/contacts', },
+  { id: 4, content: (<>Произвольный пункт 4</>) },
 ];
 
 const MainNav = () => {
-  const { pathname } = useRouter();
-
-  console.log('useRouter()', useRouter());
-
-  // const getMenuItems = (department) => {
-  //   if (Array.isArray(department)) { // случай (1)
-  //     return department.reduce((prev, current) => prev + current.salary, 0); // сумма элементов массива
-  //   } else { // случай (2)
-  //     let sum = 0;
-  //     for (let subdep of Object.values(department)) {
-  //       sum += sumSalaries(subdep); // рекурсивно вызывается для подотделов, суммируя результаты
-  //     }
-  //     return sum;
-  //   }
-  // };
-
-  // const menuItems = getMenuItems(navigation);
+  const { asPath } = useRouter();
+  const menuItems = getMenuItems(navigation, asPath);
 
   return (
     <nav className="main-nav">
       <ul className="main-nav__list">
-        {/* {menuItems} */}
-        <li>
-          <Link href="/"><a className={`main-nav__link ${pathname === '/' ? 'main-nav__link-active' : ''}`}>Home</a></Link>
-        </li>
-        <li>
-          <Link href="/items"><a className={`main-nav__link ${pathname === '/items' ? 'main-nav__link-active' : ''}`}>Items</a></Link>
-        </li>
-        <li>
-          <Link href="/contacts"><a className={`main-nav__link ${pathname === '/contacts' ? 'main-nav__link-active' : ''}`}>Contacts</a></Link>
-        </li>
+        {menuItems}
       </ul>
     </nav>
   );

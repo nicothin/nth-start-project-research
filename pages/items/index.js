@@ -29,7 +29,7 @@ const Items = ({ items }) => {
       <MainTitle text="Items" />
       <ul>
         {items && items.map((item) => (
-          <li key={item.id}><Link href={`items/${item.id}`}>{item.title}</Link></li>
+          <li key={item.id}><Link href={`/items/${item.id}`}>{item.title}</Link></li>
         ))}
       </ul>
     </div>

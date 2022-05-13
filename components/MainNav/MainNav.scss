@@ -1,4 +1,29 @@
 // Только БЭМ-блок main-nav, его элементы и модификаторы
 // Импорт файла - в диспетчере стилей
 
-.main-nav {}
+.main-nav {
+
+  $block-name: &; // #{$block-name}__some {}
+
+  &__list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  &__sublist {
+    margin: 0;
+    padding: 0 0 0 1em;
+    list-style: none;
+  }
+
+  &__item {
+
+    &--active {
+
+      & > #{$block-name}__item-inner {
+        font-weight: 700;
+      }
+    }
+  }
+}
