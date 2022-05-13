@@ -1,24 +1,28 @@
 {
   "name": "nth-start-project-5",
-  "version": "0.1.0",
+  "version": "5.0.0a",
   "private": true,
   "scripts": {
     "start": "next dev",
-    "build": "next build && next export",
+    "build": "next build && next export && npx prettier --write out/**/*.{html,css}",
+    "serve": "serve out/",
     "nextStart": "next start",
+    "prettier": "prettier --write out/**/*.{html,css}",
     "lint": "next lint"
   },
   "dependencies": {
     "next": "12.1.6",
     "react": "18.1.0",
     "react-dom": "18.1.0",
-    "sass": "^1.51.0"
+    "sass": "1.51.0"
   },
   "devDependencies": {
-    "case": "^1.6.3",
+    "case": "1.6.3",
     "eslint": "8.15.0",
     "eslint-config-next": "12.1.6",
-    "mkdirp": "^1.0.4"
+    "mkdirp": "1.0.4",
+    "prettier": "2.6.2",
+    "serve": "13.0.2"
   },
   "browserslist": [
     ">1%",

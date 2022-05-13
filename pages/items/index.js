@@ -5,13 +5,15 @@ import MainTitle from '../../components/MainTitle/MainTitle';
 
 export const getStaticProps = async () => {
   const resp = await fetch('https://jsonplaceholder.typicode.com/posts');
-  const data = await resp.json();
+  const result = await resp.json();
 
-  if (!data) {
+  if (!result) {
     return {
       notFound: true,
     };
-  }
+  };
+
+  const data = result.slice(0, 10);
 
   return {
     props: { items: data },
