@@ -29,16 +29,13 @@ export const getMenuItems = (navigation, path) => {
       );
       const hasActiveChild = checkActiveChild(navItem.childs, path);
       const subItems = getMenuItems(navItem.childs, path);
+      const classes = ['main-nav__item', 'main-nav__item--has-sublist'];
+      classes.push(
+        navItem.path === path || hasActiveChild ? 'main-nav__item--active' : '',
+        navItem.className || ''
+      );
       return (
-        <li
-          key={navItem.id}
-          className={`
-            main-nav__item
-            main-nav__item--has-sublist
-            ${navItem.path === path || hasActiveChild ? 'main-nav__item--active' : ''}
-            ${navItem.className || ''}
-          `}
-        >
+        <li key={navItem.id} className={classes.join(' ')}>
           <div className="main-nav__item-inner">{content}</div>
           <ul className="main-nav__sublist">
             {subItems}
@@ -50,15 +47,13 @@ export const getMenuItems = (navigation, path) => {
     const content = navItem.content || (
       <Link href={navItem.path} className="main-nav__link">{navItem.text}</Link>
     );
+    const classes = ['main-nav__item'];
+    classes.push(
+      navItem.path === path ? 'main-nav__item--active' : '',
+      navItem.className || ''
+    );
     return (
-      <li
-        key={navItem.id}
-        className={`
-          main-nav__item
-          ${navItem.path === path ? 'main-nav__item--active' : ''}
-          ${navItem.className || ''}
-        `}
-      >
+      <li key={navItem.id} className={classes.join(' ')}>
         <div className="main-nav__item-inner">{content}</div>
       </li>
     );

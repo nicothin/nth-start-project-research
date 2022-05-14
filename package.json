@@ -5,7 +5,7 @@
   "scripts": {
     "prepare": "husky install",
     "start": "next dev",
-    "deploy": "cross-env MODE=deploy next build && next export && npx prettier --write out/**/*.{html,css} && node deploy.js",
+    "deploy": "cross-env MODE=deploy rm -rf out/ && next build && next export && npx prettier --write out/**/*.{html,css} && node deploy.js",
     "build": "next build && next export && npx prettier --write out/**/*.{html,css}",
     "serve": "serve out/",
     "nextStart": "next start",
