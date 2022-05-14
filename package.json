@@ -3,6 +3,7 @@
   "version": "5.0.0a",
   "private": true,
   "scripts": {
+    "prepare": "husky install",
     "start": "next dev",
     "build": "next build && next export && npx prettier --write out/**/*.{html,css}",
     "serve": "serve out/",
@@ -22,6 +23,8 @@
     "case": "1.6.3",
     "eslint": "8.15.0",
     "eslint-config-next": "12.1.6",
+    "husky": "^8.0.1",
+    "lint-staged": "^12.4.1",
     "mkdirp": "1.0.4",
     "prettier": "2.6.2",
     "serve": "13.0.2",
@@ -36,5 +39,9 @@
     "not ie 11",
     "not dead",
     "not op_mini all"
-  ]
+  ],
+  "lint-staged": {
+    "*.js": "eslint --cache --fix",
+    "*.scss": "stylelint --fix"
+  }
 }
