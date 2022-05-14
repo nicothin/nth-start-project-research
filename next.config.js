@@ -1,5 +1,7 @@
 /** @type {import('next').NextConfig} */
 
+const basePath = process.env?.MODE === 'deploy' ? '/nth-start-project-research' : '';
+
 const nextConfig = {
   reactStrictMode: true,
   compiler: {
@@ -7,7 +9,8 @@ const nextConfig = {
       exclude: ['error', 'log'],
     },
   },
-  // basePath: '/',
+  basePath,
+  assetPrefix: basePath,
   // compress: false,
   images: {
     loader: 'akamai',

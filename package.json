@@ -5,6 +5,7 @@
   "scripts": {
     "prepare": "husky install",
     "start": "next dev",
+    "deploy": "cross-env MODE=deploy next build && next export && npx prettier --write out/**/*.{html,css} && node deploy.js",
     "build": "next build && next export && npx prettier --write out/**/*.{html,css}",
     "serve": "serve out/",
     "nextStart": "next start",
@@ -25,8 +26,10 @@
   "devDependencies": {
     "@types/react": "^18.0.9",
     "case": "1.6.3",
+    "cross-env": "^7.0.3",
     "eslint": "8.15.0",
     "eslint-config-next": "12.1.6",
+    "gh-pages": "^4.0.0",
     "husky": "^8.0.1",
     "lint-staged": "^12.4.1",
     "mkdirp": "1.0.4",
