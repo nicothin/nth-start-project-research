@@ -12,6 +12,10 @@
     "lint:next": "next lint",
     "lint:style": "stylelint \"./**/*.scss\""
   },
+  "lint-staged": {
+    "*.js": "eslint --cache --fix",
+    "*.scss": "stylelint --fix"
+  },
   "dependencies": {
     "next": "12.1.6",
     "react": "18.1.0",
@@ -39,9 +43,5 @@
     "not ie 11",
     "not dead",
     "not op_mini all"
-  ],
-  "lint-staged": {
-    "*.js": "eslint --cache --fix",
-    "*.scss": "stylelint --fix"
-  }
+  ]
 }
