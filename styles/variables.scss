@@ -1,5 +1,6 @@
 // NOTE[@nicothin]: приоритетный подход: CSS custom properties
 
+// stylelint-disable
 :root {
 
   // https: //colorscheme.ru/color-converter.html
@@ -41,3 +42,4 @@
   --screen-xl:                1440px;
   --screen-xxl:               1800px;
 }
+// stylelint-enable

@@ -20,7 +20,7 @@ if (!name) {
 const componentName = Case.pascal(name);
 const className = Case.kebab(name);
 const componentDirectory = `${DIR}/${componentName}/`;
-const scssImportLine = `@import '.${DIR}/${componentName}/${componentName}.scss';`;
+const scssImportLine = `@import '.${DIR}/${componentName}/${componentName}';`;
 
 if (fs.existsSync(componentDirectory)) {
   console.error(`Отмена операции: директория ${componentDirectory} уже существует`);
@@ -56,8 +56,6 @@ export default ${componentName};
 .${className} {
 
   $block-name: &; // #{$block-name}__some {}
-
-
 }
 `;
 
