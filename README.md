@@ -17,3 +17,4 @@ node createComponent.js BaDaBoo # создать компонент, импор�
 
 - [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
 - [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- [Видеокурс Next.js](https://www.youtube.com/watch?v=GEfR69hL9y0).
