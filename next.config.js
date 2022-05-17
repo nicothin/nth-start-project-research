@@ -1,6 +1,7 @@
 /** @type {import('next').NextConfig} */
 
-const basePath = process.env?.MODE === 'deploy' ? '/nth-start-project-research' : '';
+const config = require('./nth/config.js');
+const basePath = process.env?.MODE === 'deploy' ? config.basePath : '';
 
 const nextConfig = {
   reactStrictMode: true,

@@ -6,27 +6,18 @@ import MainTitle from '../../components/MainTitle/MainTitle';
 export const getStaticProps = async () => {
   const resp = await fetch('https://jsonplaceholder.typicode.com/posts');
   const result = await resp.json();
-
-  if (!result) {
-    return {
-      notFound: true,
-    };
-  };
-
+  if (!result) return { notFound: true };
   const data = result.slice(0, 10);
-
-  return {
-    props: { items: data },
-  };
+  return { props: { items: data }, };
 };
 
 const Items = ({ items }) => {
   return (
-    <div className="items">
+    <div className="posts">
       <Head>
-        <title>Items</title>
+        <title>Posts</title>
       </Head>
-      <MainTitle text="Items" />
+      <MainTitle text="Posts" />
       <ul>
         {items && items.map((item) => (
           <li key={item.id}><Link href={`/items/${item.id}`}>{item.title}</Link></li>
